@@ -1,0 +1,774 @@
+\documentclass[12pt,oneside,openany]{report}
+
+% -------- Page Geometry --------
+\usepackage[a4paper,top=0.9in,bottom=0.9in,left=1in,right=1in]{geometry}
+
+% -------- Packages --------
+\usepackage{setspace}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{longtable}
+\usepackage{multirow}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{hyperref}
+\usepackage{tocloft}
+\usepackage{titlesec}
+\usepackage{fancyhdr}
+\usepackage{enumitem}
+\usepackage{amsmath,amssymb}
+\usepackage{tabularx}
+\usepackage{ragged2e}
+\usepackage{multicol}
+\usepackage{fontspec}
+
+% -------- Font --------
+\setmainfont{Times New Roman}
+
+% -------- Line Spacing --------
+\onehalfspacing
+\setlength{\parskip}{0.2em}
+\setlength{\parindent}{0pt}
+
+% -------- Hyperref FIX (REMOVE RED COLOR) --------
+\hypersetup{
+  hidelinks
+}
+
+% -------- Chapter Formatting --------
+\titlespacing*{\chapter}{0pt}{-25pt}{10pt}
+
+\titleformat{\chapter}[display]
+  {\centering\bfseries\LARGE}
+  {CHAPTER \thechapter}
+  {5pt}
+  {}
+
+\titleformat{\section}
+  {\bfseries\large}
+  {\thesection}{0.5em}{}
+
+\titleformat{\subsection}
+  {\bfseries\normalsize}
+  {\thesubsection}{0.5em}{}
+
+% -------- TOC Formatting --------
+\renewcommand{\cftchappresnum}{CHAPTER~}
+\renewcommand{\cftchapaftersnum}{\hspace{1em}}
+
+% Alignment fixes
+\setlength{\cftchapnumwidth}{8em}        % was 5em — must fit "CHAPTER 1"
+\setlength{\cftsecnumwidth}{3em}
+\setlength{\cftsubsecnumwidth}{4em}
+
+% Spacing
+\setlength{\cftbeforechapskip}{6pt}
+\setlength{\cftbeforesecskip}{2pt}
+
+% Remove unwanted top space on TOC and LOF pages
+\setlength{\cftbeforetoctitleskip}{-30pt}
+\setlength{\cftaftertoctitleskip}{20pt}
+\setlength{\cftbeforeloftitleskip}{-30pt}
+\setlength{\cftafterloftitleskip}{20pt}
+
+% Dot spacing
+\renewcommand{\cftdotsep}{1}
+
+% Bold chapters in TOC
+\renewcommand{\cftchapfont}{\bfseries}
+\renewcommand{\cftchappagefont}{\bfseries}
+
+% -------- HEADER STYLES --------
+
+% -------- HEADER STYLES --------
+
+\fancypagestyle{frontmatter}{
+  \fancyhf{}
+  \fancyfoot[C]{\thepage}
+  \renewcommand{\headrulewidth}{0pt}
+}
+
+\usepackage{microtype}
+\hyphenpenalty=10000
+\exhyphenpenalty=10000
+\setlength{\emergencystretch}{3em}
+
+% -------- OPTIONAL --------
+\newcommand{\chapterstar}[1]{%
+  \clearpage
+  \thispagestyle{empty}
+  \begin{center}
+    {\bfseries\LARGE #1}
+  \end{center}
+  \addcontentsline{toc}{chapter}{#1}
+  \vspace{1cm}
+}
+
+\begin{document}
+
+% ================= TITLE PAGE =================
+\begin{titlepage}
+\thispagestyle{empty}
+\centering
+
+\vspace{0.5cm}
+
+{\Huge \bfseries AUTOMATED SENSITIVE DATA \&\\
+SPOOFING DETECTION\\[0.5cm]
+FRAMEWORK}\\[0.5cm]
+
+{\large A MINI PROJECT REPORT}\\[0.5cm]
+submitted by\\[0.6cm]
+
+\textbf{
+\begin{tabular}{l l}
+OMAR ABDULLAH K A & [SCM23CS204] \\
+PRANAV JAYAN & [SCM23CS209] \\
+VARUNSANKAR J. & [SCM23CS263] \\
+ZEBA SAITHALAVI & [SCM23CS270] \\
+\end{tabular}
+}
+
+\vspace{0.3cm}
+
+to\\[0.4cm]
+
+The APJ Abdul Kalam Technological University\\[0.3cm]
+
+in partial completion of the criteria for the degree award\\[0.3cm]
+
+of\\[0.3cm]
+
+Bachelor of Technology\\[1cm]
+
+\includegraphics[scale=0.55]{logo.png}\\[1cm]
+
+{\textbf{Department of Computer Science and Engineering}}\\[0.3cm]
+
+{\textbf{SCMS SCHOOL OF ENGINEERING AND TECHNOLOGY}}\\[0.3cm]
+
+{\textit{\textbf{(Affiliated to APJ Abdul Kalam Technological University)}}}\\[0.3cm]
+
+\textbf{VIDYA} \textbf{NAGAR}, \textbf{PALISSERY}, \textbf{KARUKUTTY}\\
+\textbf{ERNAKULAM} – \textbf{683576}\\[0.3cm]
+
+APRIL 2026
+
+\end{titlepage}
+
+% ================= CERTIFICATE PAGE =================
+\clearpage
+\thispagestyle{empty}
+
+\begin{center}
+
+{\large \textbf{DEPARTMENT OF COMPUTER SCIENCE AND ENGINEERING}}\\
+{\large \textbf{SCMS SCHOOL OF ENGINEERING AND TECHNOLOGY}}\\
+{\textit{(Affiliated to APJ Abdul Kalam Technological University)}}\\
+VIDYA NAGAR, PALISSERY, KARUKUTTY ERNAKULAM - 683576\\[1cm]
+
+\includegraphics[scale=0.5]{logo.png}\\[1cm]
+
+{\Large \textbf{CERTIFICATE}}\\[1cm]
+
+\end{center}
+
+\begin{justify}
+This is to certify that report entitled \textbf{`Automated Sensitive Data \& Spoofing Detection Framework'} submitted by \textbf{Omar Abdullah K A [SCM23CS204], Pranav Jayan [SCM23CS209], Varunsankar J [SCM23CS263], Zeba Saithalavi [SCM23CS270]} to the APJ Abdul Kalam Technological University in partial fulfillment of the requirements for the award of the Bachelor of Technology is a bonafide record of the project work carried out by them under my guidance and supervision.
+\end{justify}
+
+\vspace{2cm}
+
+\begin{multicols}{3}
+
+\textbf{Project Guide}\\[0.8cm]
+Ms. Surya S G\\
+Assistant Professor\\
+Dept. of CSE\\
+SSET
+
+\columnbreak
+
+\textbf{Project Coordinator}\\[0.8cm]
+Ms. Surya S G\\
+Assistant Professor\\
+Dept. of CSE\\
+SSET
+
+\columnbreak
+
+\textbf{Head of the Department}\\[0.8cm]
+Dr. Manish T I\\
+Professor\\
+Dept. of CSE\\
+SSET
+
+\end{multicols}
+
+% ---------- FRONT MATTER ----------
+\clearpage
+\pagenumbering{roman}
+\setcounter{page}{1}
+\pagestyle{frontmatter}
+
+% Declaration
+\clearpage
+\thispagestyle{frontmatter}
+
+\begin{center}
+{\bfseries\LARGE DECLARATION}
+\end{center}
+
+\addcontentsline{toc}{chapter}{DECLARATION}
+
+\begin{justify}
+We hereby declare that the project report entitled \textbf{"Automated Sensitive Data \& Spoofing Detection Framework"}, submitted in partial fulfillment of the requirements for the award of the degree of Bachelor of Technology in Computer Science and Engineering of APJ Abdul Kalam Technological University, Kerala, is a bonafide record of the work carried out by us under the supervision of Ms. Surya S G, Assistant Professor, Department of Computer Science and Engineering, SCMS School of Engineering and Technology.
+\end{justify}
+
+\begin{justify}
+This report represents our original work and has been prepared by us using our own ideas and efforts. Wherever the ideas or words of others have been used, they have been properly and adequately cited and referenced. We further declare that we have strictly followed the principles of academic honesty and integrity and have not misrepresented or fabricated any data, information, or source in this report.
+\end{justify}
+
+\begin{justify}
+We understand that any violation of the above statements may lead to disciplinary action by the institution or the University. We also confirm that this report has not been submitted previously, either in part or in full, for the award of any degree, diploma, or any other academic qualification in any institution.
+\end{justify}
+
+\vspace{2cm}
+
+\begin{minipage}{0.47\textwidth}
+Place: Ernakulam\\
+Date: 25-03-2026\\
+\end{minipage}
+\hfill
+\begin{minipage}{0.53\textwidth}
+\begin{flushright}
+\begin{tabular}{ll}
+OMAR ABDULLAH K A & [SCM23CS204] \\
+PRANAV JAYAN & [SCM23CS209] \\
+VARUN SANKAR J & [SCM23CS263] \\
+ZEBA SAITHALAVI & [SCM23CS270] \\
+\end{tabular}
+\end{flushright}
+\end{minipage}
+
+
+% Acknowledgement
+% Acknowledgement
+\clearpage
+\thispagestyle{frontmatter}
+
+\begin{center}
+{\bfseries\LARGE ACKNOWLEDGEMENT}
+\end{center}
+
+\addcontentsline{toc}{chapter}{ACKNOWLEDGEMENT}
+
+\begin{justify}
+We are greatly indebted to \textbf{Dr. Anitha G Pillai}, Principal, SCMS School of Engineering and Technology, Ernakulam and \textbf{Dr. Manish T I}, Professor, Head of Department, Department of Computer Science and Engineering, SSET, who wholeheartedly granted us the permission to do the project.
+\end{justify}
+
+\begin{justify}
+We are deeply grateful to our project guide and coordinator, \textbf{Ms. Surya S G}, Assistant Professor, Department of Computer Science and Engineering, SCMS School of Engineering and Technology, for her valuable guidance, continuous support, and constructive suggestions throughout the course of this project. Her constant encouragement, coordination, and insightful feedback greatly contributed to the successful completion and quality of this work.
+\end{justify}
+
+\begin{justify}
+We would also like to sincerely thank all the faculty members of the Department of Computer Science and Engineering for their constant support and encouragement. We extend our gratitude to the laboratory staff for their assistance and for providing the necessary resources required for the successful completion of this project.
+\end{justify}
+
+\begin{justify}
+Finally, we express our heartfelt gratitude to our family and friends for their constant encouragement and support. We are also thankful to the Almighty for the strength and guidance that helped us complete this work successfully.
+\end{justify}
+
+
+% Abstract
+\clearpage
+\thispagestyle{frontmatter}
+
+\begin{center}
+{\bfseries\LARGE ABSTRACT}
+\end{center}
+
+\addcontentsline{toc}{chapter}{ABSTRACT}
+
+\begin{justify}
+In the present digital era, the rapid expansion of online services has significantly increased the risk of exposure of sensitive personal information such as Aadhaar numbers, PAN details, passport numbers, voter IDs, and bank account information. These data leaks often occur due to misconfigured servers, unsecured databases, and poor data handling practices. Such exposures can lead to serious consequences including identity theft, financial fraud, and privacy violations, especially in countries like India where these identifiers are closely linked with essential services.
+\end{justify}
+\begin{justify}
+Traditional methods for detecting such data leaks rely heavily on manual monitoring, which is time consuming, inefficient, and not scalable with the increasing volume of web content. There is a need for an automated system that can proactively scan publicly available sources, identify sensitive information, and support timely reporting to reduce risks.
+\end{justify}
+\begin{justify}
+This project presents an Automated Sensitive Data and Spoofing Detection Framework designed to address these challenges. The system integrates the Google Custom Search API to retrieve relevant web content and supports multiple document formats including PDF, DOCX, and HTML files. A detection engine based on pattern matching and validation techniques is used to identify sensitive data accurately. Validation methods such as Aadhaar verification and format checking for PAN and passport numbers help in reducing false positives.
+\end{justify}
+\begin{justify}
+The framework also includes an automated reporting mechanism that generates structured reports containing detected data details, source information, validation status, and confidence scores. These reports are delivered through email to support responsible disclosure. The system is implemented using Python, FastAPI, and SQLite, and demonstrates an effective approach for automated data leak detection, reducing manual effort and improving cybersecurity awareness.
+\end{justify}
+
+\clearpage
+\thispagestyle{frontmatter}
+
+\renewcommand{\contentsname}{\hfill \Huge \bfseries TABLE OF CONTENTS \hfill}
+\tableofcontents
+
+\clearpage
+\thispagestyle{frontmatter}
+
+\addcontentsline{toc}{chapter}{LIST OF FIGURES}
+\renewcommand{\listfigurename}{\hfill \Huge \bfseries LIST OF FIGURES \hfill}
+\listoffigures
+
+
+% ---------- START MAIN CONTENT ----------
+\clearpage
+\pagenumbering{arabic}
+\setcounter{page}{1}
+
+% Header for main content (from Introduction onwards)
+\fancypagestyle{mainstyle}{
+  \fancyhf{}
+  \fancyhead[L]{\small \textit{Dept. of  CSE}}
+  \fancyhead[R]{\small \textit{Automated Sensitive Data \& Spoofing Detection Framework}}
+  \fancyfoot[C]{\thepage}
+  \renewcommand{\headrulewidth}{0.4pt}
+}
+
+% Apply header + page number to chapter first pages in main content
+\fancypagestyle{plain}{
+  \fancyhf{}
+  \fancyhead[L]{\small \textit{Dept. of CSE}}
+  \fancyhead[R]{\small \textit{Automated Sensitive Data \& Spoofing Detection Framework}}
+  \fancyfoot[C]{\thepage}
+  \renewcommand{\headrulewidth}{0.4pt}
+}
+\pagestyle{mainstyle}
+
+% ================== CHAPTER 1 ==================
+\chapter{INTRODUCTION}
+
+In the present digital era, the rapid growth of internet services and digital platforms has led to the widespread use of sensitive personal information such as Aadhaar numbers, PAN details, passport numbers, voter IDs, and bank account information. These data elements are essential for authentication and service delivery across various sectors. However, due to improper data handling practices, misconfigured servers, and lack of adequate security mechanisms, such information is often exposed on publicly accessible platforms. These exposures pose serious risks including identity theft, financial fraud, and violation of user privacy.
+
+With the increasing volume of digital data, manual monitoring of sensitive information has become inefficient and unreliable. Traditional approaches rely on manual inspection, which is time consuming and not scalable. As a result, many data leaks remain undetected for long periods, increasing the risk of misuse. This highlights the need for an automated system that can continuously scan online sources and identify exposed sensitive information.
+
+The Automated Sensitive Data and Spoofing Detection Framework is designed to address these challenges by providing an efficient and scalable solution. The system integrates search mechanisms to retrieve relevant web content and supports processing of multiple document formats such as PDF, DOCX, and HTML. It uses detection techniques along with validation methods to accurately identify sensitive data and reduce false detections.
+
+In addition to detecting exposed data, the system also focuses on identifying spoofing or impersonation attempts that can mislead users. The framework includes an automated reporting mechanism that generates structured reports and supports responsible disclosure. Overall, the system aims to reduce manual effort, improve detection accuracy, and enhance cybersecurity awareness in the digital environment.
+
+% ================== CHAPTER 2 ==================
+\chapter{LITERATURE REVIEW}
+
+The detection of publicly exposed sensitive personal data and the identification of government website spoofing have become critical challenges in cybersecurity, particularly in the Indian context. Several studies and research papers have explored pattern-matching techniques, deep-web crawling methods, and multi-layer detection models to address data leaks and phishing threats. This literature review summarizes key existing research on sensitive data detection and spoofing countermeasures that directly informed the development of the Automated Sensitive Data \& Spoofing Detection Framework.
+
+Paper [1]: "Finding Sensitive Information Inside CodeBase Using Regular Expression" (Ms. Mridula and Mr. Rajadhurai)  
+This study presents a system that scans websites and documents to detect sensitive data using regular expression patterns. The methodology focuses on pattern matching across codebases and documents, followed by automatic report generation to help prevent data leaks. The authors highlight that the system automatically scans large codebases, successfully identifies sensitive information, and contributes to improved overall security.
+
+Paper [2]: "Google's Deep-Web Crawl" (Jayant Madhavan, David Ko, Lucja Kot, Vignesh Ganapathy, Alex Rasmussen, and Alon Halevy)  
+This paper introduces an automated approach to surface deep-web content by submitting HTML forms and indexing the resulting pages. The methodology enables previously hidden web content to appear in standard search results, achieving a high throughput of over 1,000 queries per second. The authors emphasize the effectiveness of form-based crawling for large-scale web discovery and its ability to make inaccessible data searchable.
+
+Paper [3]: "Phishing and Spoofing Websites: Detection and Countermeasures" (Wee Liem Lai, Vik Tor Goh, Timothy Tzen Yun Yap, and Hu Ng)  
+This research proposes a multi-layer website detection model consisting of a whitelist filter, blacklist API check, and string comparison to identify phishing and spoofing websites. The methodology was tested on 30 real-world websites (malicious and legitimate) and achieved a True Positive Rate (TPR) of 0.94. The authors highlight the strength of layered detection in distinguishing legitimate sites from spoofed ones and its practical value in real-time threat identification.
+
+\section{Inference}
+
+The successful development, implementation, and real-time testing of the Automated Sensitive Data \& Spoofing Detection Framework have clearly proven its effectiveness and practical value in solving real-world cybersecurity challenges in the Indian context. Module 1 (Sensitive Data Detection) demonstrated outstanding performance by accurately identifying live Aadhaar number exposures on multiple .gov.in domains with 100 percentage confidence score. It performed proper Aadhaar checksum validation, extracted supporting evidence from PDF documents, stored the results in the unified SQLite database, and automatically generated structured HTML reports. These reports were instantly emailed to CERT-In via secure SMTP, resulting in official incident registrations under references CERTIn-79893726 (Manipur Police). This end-to-end automation eliminated the need for manual monitoring and enabled rapid responsible disclosure, directly contributing to faster data leak mitigation.
+
+Module 2 (Government Impersonation Detection) successfully detected multiple high-risk spoofed government websites impersonating official services such as Aadhaar Login. The system flagged domains like www.myworldpublic.xyz with HIGH risk scores by performing domain analysis, WHOIS lookup, SSL certificate validation, redirect chain tracking, visual screenshot comparison, and behavioral risk scoring. All detected spoofed sites were automatically reported to CERT-In (Ref: CERTIn-91038026), proving the module's capability to counter sophisticated phishing and credential-harvesting attacks. The graphical analysis presented in the project further validates that the proposed framework significantly outperforms existing systems in terms of higher throughput, lower processing time, and markedly improved efficiency. Overall, the project establishes that a lightweight, modular, and fully automated solution can deliver proactive, real-time protection against both sensitive data exposure and government website spoofing, thereby strengthening national cybersecurity awareness, enabling faster threat response, and showcasing a practical academic contribution with measurable real-world impact.
+
+% ================== CHAPTER 3 ==================
+\chapter{PROBLEM STATEMENT}
+
+\section{Problem Statement}
+
+In the present digital environment, a large amount of sensitive personal information is stored, processed, and shared through online platforms. Data such as Aadhaar numbers, PAN details, passport information, voter identification numbers, and bank account details are widely used for authentication and service delivery. However, due to improper data handling practices, lack of secure storage mechanisms, and misconfigured servers, such sensitive information is often exposed on publicly accessible websites and documents.
+
+These data exposures pose serious risks including identity theft, financial fraud, and privacy violations. In many cases, organizations are unaware that their data has been leaked, and users are left vulnerable to misuse of their personal information. The increasing number of such incidents highlights the need for effective mechanisms to identify and mitigate data leaks at an early stage.
+
+Traditional approaches for detecting sensitive data exposure rely heavily on manual monitoring and inspection. These methods are time consuming, inefficient, and not scalable with the growing volume of web content. Manual processes are also prone to human error, which reduces reliability and delays the detection of critical issues.
+
+Another major challenge is the presence of spoofed or fraudulent websites that imitate legitimate platforms. These websites are designed to deceive users into sharing confidential information. Existing systems often fail to detect such threats effectively, especially when dealing with new or previously unknown patterns.
+
+In addition, many existing solutions focus only on a single aspect of the problem without providing an integrated approach. The lack of a unified system that combines search, data extraction, detection, validation, and reporting increases complexity and reduces efficiency.
+
+\section{Objectives}
+
+The main objective of this project is to design and develop an Automated Sensitive Data and Spoofing Detection Framework that can efficiently detect exposed sensitive information from publicly available sources and identify potential spoofing attempts.
+
+The specific objectives of the system are as follows:
+
+\begin{itemize}
+    \item To develop a system that can automatically retrieve web content using search mechanisms.
+    \item To process multiple document formats such as PDF, DOCX, and HTML for data extraction.
+    \item To implement detection techniques for identifying sensitive information such as Aadhaar numbers, PAN           details, and passport numbers.
+    \item To incorporate validation mechanisms to reduce false detections and improve accuracy.
+    \item To identify spoofed or fraudulent websites using domain analysis and security checks.
+    \item To design an automated reporting system that generates structured reports for responsible disclosure.
+    \item To reduce manual effort and improve efficiency in detecting data exposure.
+\end{itemize}
+
+\section{Scope of the Project}
+
+The scope of this project is limited to detecting sensitive data that is publicly accessible through web sources and identifying potential spoofing attempts. The system focuses on analyzing textual data extracted from web pages and documents and does not access private or restricted databases.
+
+The framework is designed to support commonly used identification formats and document types. It provides an automated solution for data detection and reporting, which can be useful for organizations, researchers, and cybersecurity analysts.
+
+However, the system does not perform active intervention or data removal. It is intended for detection and reporting purposes only. The system can be extended in the future to include additional data types, improved detection techniques, and integration with advanced security systems.
+
+\section{Need for the System}
+
+With the increasing reliance on digital platforms, the risk of sensitive data exposure has grown significantly. Existing manual methods are not sufficient to handle the scale and complexity of modern web data. There is a strong need for an automated system that can continuously monitor web content and detect potential risks.
+
+An integrated framework that combines search, detection, validation, and reporting can significantly improve efficiency and accuracy. Such a system can help in early detection of data leaks, reduce potential damage, and enhance overall cybersecurity awareness. The proposed system aims to fulfill this need by providing a practical and scalable solution.
+
+% ================== CHAPTER 4 ==================
+\chapter{SYSTEM DESCRIPTION}
+
+\section{System Architecture}
+The architecture of the Automated Sensitive Data and Spoofing Detection Framework is designed as a modular and scalable system that integrates multiple components to detect sensitive data exposure and identify spoofing attempts from web sources. The overall system is divided into two major functional modules, namely sensitive data detection and spoof detection, which operate in parallel and share a common backend and database.
+
+The process begins with the user interacting through a web browser using a unified web interface. This interface allows the user to initiate scanning operations and view results. All user requests are handled by the FastAPI backend, which acts as the central controller of the system. The backend coordinates the flow of data between different modules and ensures smooth execution of the detection process.
+
+The first major component is the sensitive data detection module. This module focuses on identifying confidential information such as Aadhaar numbers, PAN details, passport numbers, and other personal data. The process starts with document processing, where the system extracts textual content from different file formats such as PDF, DOCX, and HTML. This ensures that data from various sources can be analyzed effectively.
+
+The extracted text is then passed to the detection engine, which uses pattern matching techniques to identify potential sensitive information. These patterns are designed based on the structure of different identification numbers and data formats. However, pattern matching alone may lead to incorrect detections, so an additional validation step is included.
+
+The validation component verifies the detected data using logical checks such as checksum validation and format verification. This step significantly improves accuracy by filtering out invalid matches and reducing false positives. The validated data is then stored in the central database for further processing and reference.
+
+Parallel to the sensitive data detection module, the system includes a spoof detection module. This module is responsible for identifying fraudulent or impersonating websites that may attempt to deceive users. It performs domain verification, SSL or TLS certificate checking, and URL analysis to evaluate the authenticity of web sources. By analyzing these parameters, the system can detect suspicious websites and assess potential risks.
+
+Both modules interact with a central database, which acts as a unified storage system. The database stores extracted data, detection results, validation outputs, and analysis results from the spoof detection module. This centralized storage ensures consistency and allows efficient retrieval of information for reporting and analysis.
+
+After processing is completed, the results are forwarded to the report generation module. This module compiles the findings into structured reports that include detected data, source information, and risk analysis. These reports are then sent to CERT In through email for responsible disclosure and necessary action.
+
+Overall, the architecture ensures a complete pipeline starting from user input, data collection, processing, detection, validation, and reporting. The modular design improves scalability and flexibility, allowing the system to be extended with additional features in the future. This integrated approach enhances the efficiency and reliability of detecting sensitive data exposure and spoofing attempts in real world scenarios.
+
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.9\textwidth]{architecture.png}
+\caption{System Architecture of Automated Sensitive Data and Spoofing Detection Framework}
+\end{figure}
+
+\vspace{0.01\textheight}
+\section{Data Handling and Processing}
+
+The system processes data collected from publicly available web sources through automated search and extraction mechanisms. The input data primarily consists of URLs retrieved using the Google Custom Search API based on predefined queries. These URLs may contain web pages or documents in formats such as HTML, PDF, and DOCX.
+
+The retrieved content is passed to the document processing module, where text is extracted using appropriate parsing techniques. This ensures that data from different formats can be analyzed in a unified manner. The extracted text is then stored temporarily for further analysis.
+
+The detection engine processes the extracted data by applying pattern matching techniques to identify sensitive information such as Aadhaar numbers, PAN details, and passport numbers. The detected data is then validated using logical checks to ensure correctness and reduce false detections.
+
+All processed data, including extracted content, detection results, validation outputs, and analysis results, are stored in a centralized database. This allows efficient retrieval of information for reporting and further analysis.
+
+The system ensures proper handling of data by maintaining structured storage and minimizing redundancy. This approach improves efficiency and supports scalable processing of large volumes of web data.
+
+
+% ================== CHAPTER 5 ==================
+\chapter{SYSTEM DESIGN}
+
+\section{Software}
+
+\subsection{Tools Used}
+The Automated Sensitive Data and Spoofing Detection Framework is developed using modern software technologies to ensure efficient processing and accurate detection. The backend of the system is implemented using Python with the FastAPI framework, which handles server-side operations, processes user requests, and manages communication between different modules. The frontend is designed using HTML, CSS, and JavaScript to provide a simple and user friendly interface for users to input queries and view results.
+
+For data storage and management, an SQLite database is used to securely store extracted data, detection results, and analysis logs. The system also integrates external APIs such as the Google Custom Search API to retrieve web content for analysis. Various Python libraries are used for document processing, pattern matching, and validation to improve detection accuracy. The system ensures secure handling of data and provides reliable performance for real time analysis.
+
+\subsection{Flow Chart}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.85\textwidth]{system_design.png}
+\caption{System Design}
+\label{fig:system_design}
+\end{figure}
+
+\subsection{Dataset}
+The system does not rely on a predefined dataset but dynamically collects data from web sources. It retrieves content from PDF documents, and DOCX files using search APIs. The collected data is processed and converted into text format for analysis. This dynamic data handling approach ensures that the system can analyze real time information and detect sensitive data exposure effectively.
+
+\subsection{Working of the Project}
+
+\textbf{User Interaction Flow}
+
+\textbf{Module 1: Sensitive Data Detection}
+
+\begin{itemize}
+
+\item \textbf{Input Submission:}  
+The process begins with the user interacting through a web based interface. The user provides input in the form of search queries or URLs that need to be analyzed. This interface is designed to be simple and user friendly, allowing users to easily initiate scanning operations without requiring technical knowledge.
+
+\item \textbf{Data Collection:}  
+Once the input is provided, the system retrieves relevant data from web sources using search APIs. It supports multiple formats such as PDF documents, and DOCX files. This ensures that the system can collect information from diverse sources and analyze a wide range of publicly available data.
+
+\item \textbf{Data Processing:}  
+The collected data is then processed to extract meaningful textual content. Since different file formats contain data in different structures, the system converts them into a unified text format. This preprocessing step is essential for ensuring consistency and preparing the data for accurate analysis.
+
+\item \textbf{Sensitive Data Detection:}  
+After processing, the system applies pattern matching techniques to identify sensitive information. These patterns are based on the structure of various identification numbers such as Aadhaar, PAN, passport numbers, and other personal data. The detection engine scans the text thoroughly to locate any potential exposure of confidential information.
+
+\item \textbf{Validation:}  
+To improve accuracy, the detected data is passed through a validation module. This module performs logical checks such as format verification and checksum validation wherever applicable. This step helps eliminate false positives and ensures that only valid sensitive data is considered in the final output.
+
+\end{itemize}
+
+\textbf{Module 2: Spoof Detection and Reporting}
+
+\begin{itemize}
+
+\item \textbf{Website Analysis:}  
+Parallel to the sensitive data detection process, the system performs analysis on the given web sources. It examines various attributes of the website to determine its authenticity and reliability.
+
+\item \textbf{Spoof Detection:}  
+The system checks for potential spoofing by performing domain verification, SSL or TLS certificate validation, and URL structure analysis. Suspicious patterns such as mismatched domains, invalid certificates, and unusual URL formats are identified to detect fraudulent or impersonating websites.
+
+\item \textbf{Result Integration:}  
+The outputs from both modules are combined to provide a comprehensive analysis. Sensitive data detection results and spoof detection findings are integrated to give a complete overview of potential risks associated with the analyzed content.
+
+\item \textbf{Report Generation:}  
+Once the analysis is completed, the system generates a structured report. This report includes details such as detected sensitive data, validation results, source information, and spoof detection outcomes. The report is organized in a clear format to ensure easy understanding.
+
+\item \textbf{Notification and Reporting:}  
+The generated report is sent through email to relevant authorities such as CERT In for responsible disclosure. This ensures that appropriate action can be taken to address the detected issues and prevent misuse of sensitive data.
+
+\end{itemize}
+
+\textbf{Overall System Workflow}
+
+The entire system operates in a coordinated manner where both modules function simultaneously and share a common backend and database. The modular design ensures scalability and flexibility, allowing future enhancements such as integration of advanced machine learning models or additional validation mechanisms. The system provides a complete pipeline from data collection to detection, validation, and reporting, making it an efficient solution for identifying sensitive data exposure and spoofing attempts in real world scenarios.
+
+\textbf{System Functionality}
+
+\begin{itemize}
+\item \textbf{Data Processing:}  
+The system processes collected data and prepares it for analysis.
+
+\item \textbf{Detection Engine:}  
+Identifies sensitive information using pattern based techniques.
+
+\item \textbf{Validation Mechanism:}  
+Ensures accuracy by verifying detected data.
+
+\item \textbf{Spoof Analysis:}  
+Evaluates authenticity of websites to detect fraudulent sources.
+
+\item \textbf{Report Generation:}  
+Generates structured reports containing detected data and analysis results.
+
+\item \textbf{Notification:}  
+Reports are sent through email for responsible disclosure.
+\end{itemize}
+
+\subsection{Features and Implementation}
+
+\textbf{User Interface}
+\begin{itemize}
+\item Provides a simple and user friendly platform for interaction
+\item Displays detection results and analysis clearly
+\item Enables easy navigation and operation
+\end{itemize}
+
+\textbf{Data Processing and Detection}
+\begin{itemize}
+\item Supports multiple document formats
+\item Uses pattern matching for detection
+\item Applies validation to improve accuracy
+\end{itemize}
+
+\textbf{Spoof Detection}
+\begin{itemize}
+\item Performs domain verification
+\item Checks SSL or TLS certificates
+\item Analyzes URLs for suspicious patterns
+\end{itemize}
+
+\textbf{Report Generation}
+\begin{itemize}
+\item Generates structured reports automatically
+\item Includes detected data and validation status
+\item Supports email based reporting
+\end{itemize}
+
+\subsection{User Dashboard}
+The dashboard serves as the central interface for the user. It allows users to initiate scanning operations, view detected sensitive data, and analyze spoof detection results. The interface is designed to be simple, organized, and easy to use. Users can monitor processing status and access reports efficiently. The dashboard ensures smooth interaction with the system and improves overall usability.
+
+
+% ================== CHAPTER 6 ==================
+
+\chapter{RESULTS}
+\vspace{10pt}
+\section{MODULE 1}
+
+\noindent
+\includegraphics[width=\linewidth,height=0.29\textheight]{unnamed.png}
+\captionof{figure}{Home page}
+\vspace{0.05\textheight}
+
+\noindent
+\includegraphics[width=\linewidth,height=0.35\textheight]{image (1).png}
+\captionof{figure}{Scanning}
+
+\newpage
+
+\noindent
+\includegraphics[width=\linewidth,height=0.40\textheight]{listing of urls.png}
+\captionof{figure}{Listing of Urls}
+\vspace{0.05\textheight}
+
+\noindent
+\includegraphics[width=\linewidth,height=0.40\textheight]{poc.png}
+\captionof{figure}{Proof Of Concept}
+
+\newpage
+
+\noindent
+\includegraphics[width=\linewidth,height=0.40\textheight]{poc2.png}
+\captionof{figure}{Proof Of Concept - 2}
+\vspace{0.05\textheight}
+
+
+\noindent
+\includegraphics[width=\linewidth,height=0.40\textheight]{exporting to csv.png}
+\captionof{figure}{Exporting to CSV File}
+
+\newpage
+
+\includegraphics[width=\linewidth,height=0.40\textheight]{file in excel.png}
+\captionof{figure}{File exported to excel file}
+\vspace{0.05\textheight}
+
+\noindent
+\includegraphics[width=\linewidth,height=0.40\textheight]{MailAlertSend.png}
+\captionof{figure}{Alert Sending Button}
+
+\newpage
+
+\includegraphics[width=\linewidth,height=0.40\textheight]{confirmation.png}
+\captionof{figure}{Initial Confirmation}
+\vspace{0.05\textheight}
+
+\noindent
+\includegraphics[width=\linewidth,height=0.40\textheight]{popup.png}
+\captionof{figure}{Final Confirmation}
+
+\newpage
+\includegraphics[width=\linewidth,height=0.40\textheight]{mail1.png}
+\captionof{figure}{Mail sent to CERT-IN}
+\vspace{0.05\textheight}
+
+\noindent
+\includegraphics[width=\linewidth,height=0.40\textheight]{mail2.png}
+\captionof{figure}{Mail contains all necessary details}
+
+
+
+\newpage
+\includegraphics[width=\linewidth,height=0.40\textheight]{mailfromgov.png}
+\captionof{figure}{Mail Received from CERT-IN}
+\vspace{0.05\textheight}
+
+
+\section{MODULE 2}
+
+\noindent
+\includegraphics[width=\linewidth,height=0.40\textheight]{2home.png}
+\captionof{figure}{Homepage}
+
+\newpage
+\includegraphics[width=\linewidth,height=0.40\textheight]{2scan.png}
+\captionof{figure}{Scanning}
+\vspace{0.05\textheight}
+
+\noindent
+\includegraphics[width=\linewidth,height=0.40\textheight]{Listing of impersonating urls.png}
+\captionof{figure}{Listing of impersonating urls}
+
+\newpage
+\includegraphics[width=\linewidth,height=0.40\textheight]{uur.png}
+\captionof{figure}{Opening listed urls}
+\vspace{0.05\textheight}
+
+\noindent
+\includegraphics[width=\linewidth,height=0.40\textheight]{fake.png}
+\captionof{figure}{Fake or Impersonating Login Page of Aadhaar Portal}
+
+
+\newpage
+\includegraphics[width=\linewidth,height=0.40\textheight]{Detection Engine Confirms the mismatch in SSL Certificate and Org.png}
+\captionof{figure}{Detection Engine Confirms the mismatch in SSL Certificate and Org}
+\vspace{0.05\textheight}
+
+
+\noindent
+\includegraphics[width=\linewidth,height=0.40\textheight]{Selecting the urls.png}
+\captionof{figure}{Selecting the urls}
+
+
+\newpage
+\includegraphics[width=\linewidth,height=0.40\textheight]{exportcsv1.png}
+\captionof{figure}{Export to csv file (same feature as Module 1)}
+\vspace{0.05\textheight}
+
+\noindent
+\includegraphics[width=\linewidth,height=0.40\textheight]{SENDul.png}
+\captionof{figure}{Sending Email Alert Button}
+
+\newpage
+\includegraphics[width=\linewidth,height=0.40\textheight]{Confirm11.png}
+\captionof{figure}{Initial Confirmation}
+\vspace{0.05\textheight}
+
+\noindent
+\includegraphics[width=\linewidth,height=0.40\textheight]{fiCON.png}
+\captionof{figure}{Final Confirmation}
+
+
+
+\newpage
+\includegraphics[width=\linewidth,height=0.40\textheight]{maail.png}
+\captionof{figure}{Mail sent to CERT-IN}
+\vspace{0.05\textheight}
+
+\noindent
+\includegraphics[width=\linewidth,height=0.40\textheight]{allde.png}
+\captionof{figure}{Mail contains all necessary details}
+
+
+\newpage
+\includegraphics[width=\linewidth,height=0.40\textheight]{goov.png}
+\captionof{figure}{Mail Received from CERT-IN}
+\vspace{0.05\textheight}
+
+
+\noindent
+\includegraphics[width=\linewidth,height=0.40\textheight]{5scan.png}
+\captionof{figure}{Displaying Recent 5 Scans }
+
+
+% ================== CHAPTER 7 ==================
+\chapter{CONCLUSION AND FUTURE SCOPE}
+\vspace{10pt}
+In conclusion, the Automated Sensitive Data \& Spoofing Detection Framework is a lightweight, fully automated cybersecurity solution that successfully identifies publicly exposed sensitive Indian personal data (Aadhaar, PAN, Voter ID, Passport) on .gov.in domains. It uses Google Custom Search API, multi-format document parsing, Aadhaar checksum validation, and confidence scoring. The system automatically generates structured HTML reports and instantly emails them to CERT-In for rapid takedown, while its dedicated Government Impersonation Detection Module accurately flags spoofed official portals through domain analysis, SSL validation, and visual/behavioral checks. Overall, the framework eliminates manual monitoring, reduces response time, and provides a practical, real-world contribution to proactive national data protection.
+
+The future scope of the framework focuses on integrating Machine Learning and NLP for higher accuracy and contextual detection, deploying it on local cloud infrastructure for scalability, and adding a real-time monitoring dashboard with analytics. Further enhancements include multi-language support for regional Indian languages, bidirectional API integration with CERT-In and other agencies, and advanced behavioral analysis to counter evolving AI-powered spoofing attacks, making it a robust nationwide cybersecurity platform.
+
+
+
+% ================== REFERENCES ==================
+\chapter{REFERENCES}
+\vspace{10pt}
+\begin{enumerate}[label={[\arabic*]}, leftmargin=*, itemsep=0.5em]
+
+\item Ms. Mridula, Mr. Rajadhurai,
+``Finding Sensitive Information Inside CodeBase Using Regular Expression''
+IJSRD, 2025.
+
+\item Jayant Madhavan, David Ko, Lucja Kot, Vignesh Ganapathy,
+Alex Rasmussen, Alon Halevy,
+``Google's Deep-Web Crawl''
+Proceedings of VLDB, 2009.
+
+\item Wee Liem Lai, Vik Tor Goh, Timothy Tzen Vun Yap, Hu Ng,
+``Phishing and Spoofing Websites: Detection and Countermeasures''
+ResearchGate, 2023.
+
+\end{enumerate}
+
+\end{document}
